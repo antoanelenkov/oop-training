@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,8 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Registration.Data.Common\Registration.Data.Common.csproj">
+      <Project>{973f3853-c490-48e2-8dd5-934c7da7c689}</Project>
+      <Name>Registration.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Registration.Services\Registration.Services.csproj">
       <Project>{236aa8d3-45a8-466e-9335-25a59b15e7a2}</Project>
       <Name>Registration.Services</Name>

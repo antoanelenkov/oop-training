@@ -11,7 +11,8 @@ namespace RegistrationProcess.Service.Validators
         {
             return new ValidationResult()
             {
-                IsValid = data.CPR == "notunique" ? false : true
+                IsValid = data.CPR == "notunique" ? false : true,
+                Message = "CPR is not uqnique"
             };
         }
     }

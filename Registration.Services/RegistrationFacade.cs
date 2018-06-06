@@ -1,19 +1,16 @@
 ﻿using Newtonsoft.Json;
 using RegistrationProcess.Data;
-using RegistrationProcess.Service;
 using RegistrationProcess.Service.HelperServices;
 using RegistrationProcess.Service.RegistrationServices;
 using RegistrationProcess.Service.Validators;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RegistrationProcess.Service
 {
     public class RegistrationFacade
     {
-        public void Register(int regulation, string data)
+        public RegistrationStatus Register(int regulation, string data)
         {
             if (regulation == (int)RegulationType.Regular)
             {
@@ -21,7 +18,7 @@ namespace RegistrationProcess.Service
                 var regularValidators = new List<IRegistrationValidator<RegistrationData>>()
                     { new UsernameValidator() };
                 var service = new RegularRegistrationService(regularValidators, regularRepository);
-                service.Register(JsonConvert.DeserializeObject<RegistrationData>(data));
+                return service.Register(JsonConvert.DeserializeObject<RegistrationData>(data));
             }
             else if (regulation == (int)RegulationType.Danish)
             {
@@ -32,8 +29,10 @@ namespace RegistrationProcess.Service
                 var service = new DanishRegistrationService(validators, repository,
                     new EmailService(),
                     new DanishReportService());
-                service.Register(JsonConvert.DeserializeObject<DanishRegistrationData>(data));
+                return service.Register(JsonConvert.DeserializeObject<DanishRegistrationData>(data));
             }
+
+            throw new NotImplementedException("regulation type is not implemented");
         }
     }
 }

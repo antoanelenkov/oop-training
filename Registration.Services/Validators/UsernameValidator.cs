@@ -12,8 +12,9 @@ namespace RegistrationProcess.Service.Validators
             // Check if username is unique
             return new ValidationResult()
             {
-                IsValid = data.Username == "notunique" ? false : true
-        };
+                IsValid = data.Username == "notunique" ? false : true,
+                Message = "Username is not uqnique"
+            };
         }
     }
 }

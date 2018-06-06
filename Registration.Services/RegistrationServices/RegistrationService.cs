@@ -1,11 +1,12 @@
 ﻿using RegistrationProcess.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime;
 
 namespace RegistrationProcess.Service
 {
-    public abstract class RegistrationService<T>  where T : IRegistrationData
+    public abstract class RegistrationService<T> where T : IRegistrationData
     {
         private ICollection<IRegistrationValidator<T>> validators;
         private IRepository<T> repository;
@@ -22,20 +23,30 @@ namespace RegistrationProcess.Service
 
         protected virtual void PostRegister(bool isSuccessful, T data) { }
 
-        public  RegistrationStatus Register(T data)
+        public RegistrationStatus Register(T data)
         {
-            var result = this.Validate(data);
+            IEnumerable<ValidationResult> validations = Enumerable.Empty<ValidationResult>();
 
-            if (!this.RegistrationDataIsValid(result))
+            try
             {
-                return new RegistrationStatus();
+                validations = this.Validate(data);
+
+                if (!this.RegistrationDataIsValid(validations))
+                {
+                    return new RegistrationStatus(validations, RegistrationStatusType.Invalid);
+                }
+
+                PreRegister(data);
+                var isSuccessful = this.repository.Save(data);
+                PostRegister(isSuccessful, data);
+            }
+            catch (Exception ex)
+            {
+                //Logging exception
+                return new RegistrationStatus(validations, RegistrationStatusType.ServerError);
             }
 
-            PreRegister(data);
-            var isSuccessful = this.repository.Save(data);
-            PostRegister(isSuccessful, data);
-
-             return new RegistrationStatus();
+            return new RegistrationStatus(validations, RegistrationStatusType.Successful);
         }
 
         private IEnumerable<ValidationResult> Validate(T data)
