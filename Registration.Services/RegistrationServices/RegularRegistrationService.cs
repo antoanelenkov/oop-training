@@ -7,10 +7,10 @@ using RegistrationProcess.Data;
 
 namespace RegistrationProcess.Service.RegistrationServices
 {
-    public class RegularRegistrationService : RegistrationService<RegistrationData>
+    public class RegularRegistrationService : RegistrationService
     {
-        public RegularRegistrationService(ICollection<IRegistrationValidator<RegistrationData>> validators, 
-            IRepository<RegistrationData> repository) 
+        public RegularRegistrationService(IEnumerable<IRegistrationValidator> validators, 
+            IRepository<IRegistrationData> repository) 
             : base(validators, repository)
         {
         }

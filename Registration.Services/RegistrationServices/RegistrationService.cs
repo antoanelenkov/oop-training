@@ -6,24 +6,26 @@ using System.Runtime;
 
 namespace RegistrationProcess.Service
 {
-    public abstract class RegistrationService<T> where T : IRegistrationData
+    public abstract class RegistrationService
     {
-        private ICollection<IRegistrationValidator<T>> validators;
-        private IRepository<T> repository;
+        private IEnumerable<IRegistrationValidator> validators;
+        private IRepository<IRegistrationData> repository;
+
+
 
         protected RegistrationService(
-            ICollection<IRegistrationValidator<T>> validators,
-            IRepository<T> repository)
+            IEnumerable<IRegistrationValidator> validators,
+            IRepository<IRegistrationData> repository)
         {
             this.validators = validators;
             this.repository = repository;
         }
 
-        protected virtual void PreRegister(T data) { }
+        protected virtual void PreRegister(IRegistrationData data) { }
 
-        protected virtual void PostRegister(bool isSuccessful, T data) { }
+        protected virtual void PostRegister(bool isSuccessful, IRegistrationData data) { }
 
-        public RegistrationStatus Register(T data)
+        public RegistrationStatus Register(IRegistrationData data)
         {
             IEnumerable<ValidationResult> validations = Enumerable.Empty<ValidationResult>();
 
@@ -49,7 +51,7 @@ namespace RegistrationProcess.Service
             return new RegistrationStatus(validations, RegistrationStatusType.Successful);
         }
 
-        private IEnumerable<ValidationResult> Validate(T data)
+        private IEnumerable<ValidationResult> Validate(IRegistrationData data)
         {
             return this.validators.Select(x => x.Validate(data));
         }

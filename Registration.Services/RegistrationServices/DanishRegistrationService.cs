@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using RegistrationProcess.Data;
+using RegistrationProcess.Service;
+using Registration.Services.HelperServices;
 
 namespace RegistrationProcess.Service
 {
-    public class DanishRegistrationService : RegistrationService<DanishRegistrationData>
+    public class DanishRegistrationService : RegistrationService
     {
         private readonly IEmailService emailService;
-        private readonly DanishReportService reportService;
+        private readonly IReportService reportService;
 
         public DanishRegistrationService(
-            ICollection<IRegistrationValidator<DanishRegistrationData>> validators,
-            IRepository<DanishRegistrationData> repository,
+            IEnumerable<IRegistrationValidator> validators,
+            IRepository<IRegistrationData> repository,
             IEmailService emailService,
-            DanishReportService reportService)
+            IReportService reportService)
             : base(validators, repository)
         {
             this.emailService = emailService;
             this.reportService = reportService;
         }
 
-        protected override void PostRegister(bool isSuccessful, DanishRegistrationData data)
+        protected override void PostRegister(bool isSuccessful, IRegistrationData data)
         {
             if (isSuccessful)
             {

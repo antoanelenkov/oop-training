@@ -1,9 +1,6 @@
-﻿using Newtonsoft.Json;
-using RegistrationProcess.Service;
+﻿using RegistrationProcess.Service;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace RegistrationProcess
 {
@@ -11,38 +8,16 @@ namespace RegistrationProcess
     {
         public static void Main()
         {
-            Console.WriteLine("Choose registration flow:");
-            Console.WriteLine("For regular registration press 1");
-            Console.WriteLine("For danish registration press 2");
-            Console.WriteLine("For polish registration press 3");
-            var currentRegistration = int.Parse(Console.ReadLine());
+            Console.WriteLine("Choose registration flow:" + Environment.NewLine
+            + "For regular press '1', for danish  press '2', for polish press '3'");
+            var regulationType = (RegulationType)(int.Parse(Console.ReadLine())-1);
 
-            IRegistrationData regularData = GetRegularData();
-            RegistrationStatus registrationResult;
-
-            switch ((RegulationType)currentRegistration)
-            {
-                case RegulationType.Danish:
-                    var dansihData = GetDanishData(regularData);
-                    registrationResult = new RegistrationFacade()
-                        .Register(currentRegistration, JsonConvert.SerializeObject(dansihData));
-                    break;
-                case RegulationType.Polish:
-                    var polishData = GetPolishData(regularData);
-                    registrationResult = new RegistrationFacade()
-                        .Register(currentRegistration, JsonConvert.SerializeObject(polishData));
-                    break;
-                default:
-                    registrationResult = new RegistrationFacade()
-                        .Register(currentRegistration, JsonConvert.SerializeObject(regularData));
-                    break;
-            }
-
-            ProcessRegistrationStatus(registrationResult);
+            RegistrationService service = new RegistrationServiceFactory().GetService(regulationType);
+            ProcessRegistrationStatus(service.Register(GetRegistrationData(regulationType)));
         }
 
 
-        private static IRegistrationData GetRegularData()
+        private static IRegistrationData GetRegistrationData(RegulationType regulationType)
         {
             Console.WriteLine("Enter username");
             var username = Console.ReadLine();
@@ -53,53 +28,57 @@ namespace RegistrationProcess
             Console.WriteLine("Enter email");
             var email = Console.ReadLine();
 
-            return new RegistrationData()
+            var regularData = new RegistrationData()
             {
                 Username = username,
                 Password = password,
                 Email = email
             };
+
+            switch (regulationType)
+            {
+                case RegulationType.Regular:
+                    return regularData;
+                case RegulationType.Danish:
+                    return GetDanishData(regularData);
+                case RegulationType.Polish:
+                    return GetPolishData(regularData);
+                default:
+                    throw new NotImplementedException("Not implemented regulation type");
+            }
+
         }
 
-        private static DanishRegistrationData GetDanishData(IRegistrationData regularData)
+        private static IRegistrationData GetDanishData(IRegistrationData regularData)
         {
-            Console.WriteLine("Enter CPR");
-            var cpr = Console.ReadLine();
+            Console.WriteLine("Enter Identity Number");
+            var identity = Console.ReadLine();
 
-            return new DanishRegistrationData()
+            return new RegistrationData()
             {
                 Username = regularData.Username,
                 Email = regularData.Email,
                 Password = regularData.Password,
-                CPR = cpr
+                IdentityNumber = identity
             };
         }
 
-        private static PolishRegistrationData GetPolishData(IRegistrationData regularData)
+        private static IRegistrationData GetPolishData(IRegistrationData regularData)
         {
-            Console.WriteLine("Enter PESEL");
-            var pesel = Console.ReadLine();
-
-            return new PolishRegistrationData()
-            {
-                Username = regularData.Username,
-                Email = regularData.Email,
-                Password = regularData.Password,
-                PESEL = pesel
-            };
+            return GetDanishData(regularData);
         }
 
         private static void ProcessRegistrationStatus(RegistrationStatus status)
         {
-            if(status.Status == RegistrationStatusType.Invalid)
+            if (status.Status == RegistrationStatusType.Invalid)
             {
                 Console.WriteLine("Your registration is not successful!");
-                foreach (var validation in status.Validations.Where(x=>!x.IsValid))
+                foreach (var validation in status.Validations.Where(x => !x.IsValid))
                 {
-                    Console.WriteLine(validation.Message);
+                    Console.WriteLine(validation.ErrorMessage);
                 }
             }
-            else if(status.Status == RegistrationStatusType.Successful)
+            else if (status.Status == RegistrationStatusType.Successful)
             {
                 Console.WriteLine("Your registration is successful!");
             }

@@ -13,5 +13,7 @@ namespace RegistrationProcess.Service
         string Firstname { get; set; }
 
         string Lastname { get; set; }
+
+        string IdentityNumber { get; set; }
     }
 }

@@ -44,15 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\ValidatorsFactory.cs" />
     <Compile Include="HelperServices\DanishReportService.cs" />
     <Compile Include="HelperServices\EmailService.cs" />
-    <Compile Include="HelperServices\IEmailService.cs" />
+    <Compile Include="HelperServices\Contracts\IEmailService.cs" />
+    <Compile Include="HelperServices\Contracts\IReportService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistrationData\DanishRegistrationData.cs" />
-    <Compile Include="RegistrationData\IRegistrationData.cs" />
-    <Compile Include="RegistrationData\PolishRegistrationData.cs" />
+    <Compile Include="RegistrationData\Contracts\IRegistrationData.cs" />
     <Compile Include="RegistrationData\RegistrationData.cs" />
-    <Compile Include="RegistrationFacade.cs" />
+    <Compile Include="Factories\RegistrationServiceFactory.cs" />
     <Compile Include="RegistrationServices\DanishRegistrationService.cs" />
     <Compile Include="RegistrationServices\PolishRegistrationService.cs" />
     <Compile Include="RegistrationServices\RegistrationService.cs" />
@@ -60,9 +60,9 @@
     <Compile Include="RegistrationServices\RegularRegistrationService.cs" />
     <Compile Include="RegistrationStatusType.cs" />
     <Compile Include="RegulationType.cs" />
-    <Compile Include="Validators\CPRValidator.cs" />
-    <Compile Include="Validators\IRegistrationValidator.cs" />
-    <Compile Include="Validators\UsernameValidator.cs" />
+    <Compile Include="Validators\DanishIdentityValidator.cs" />
+    <Compile Include="Validators\Contracts\IRegistrationValidator.cs" />
+    <Compile Include="Validators\EmailValidator.cs" />
     <Compile Include="Validators\ValidationResult.cs" />
   </ItemGroup>
   <ItemGroup>

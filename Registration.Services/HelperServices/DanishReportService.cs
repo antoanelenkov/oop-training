@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Registration.Services.HelperServices;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace RegistrationProcess.Service
 {
-    public  class DanishReportService
+    public  class DanishReportService : IReportService
     {
-        public void SendReport(DanishRegistrationData data)
+        public void SendReport(IRegistrationData data)
         {
-            var sentData = data.CPR;
+            var sentData = data.IdentityNumber;
 
             Task.Run(() =>
             {
@@ -20,7 +21,7 @@ namespace RegistrationProcess.Service
                         string endPoint = "http://en.dansihService.org/";
 
                         var content = new FormUrlEncodedContent(new[]{
-                        new KeyValuePair<string, string>("cpr", data.CPR) });
+                        new KeyValuePair<string, string>("cpr", data.IdentityNumber) });
                         client.PostAsync(endPoint, content);
                     }
                 }

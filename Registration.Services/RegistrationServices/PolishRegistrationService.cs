@@ -7,11 +7,11 @@ using RegistrationProcess.Service;
 
 namespace RegistrationProcess.Service
 {
-    public class PolishRegistrationService : RegistrationService<PolishRegistrationData>
+    public class PolishRegistrationService : RegistrationService
     {
-        protected PolishRegistrationService(
-            ICollection<IRegistrationValidator<PolishRegistrationData>> validators, 
-            IRepository<PolishRegistrationData> repository) 
+        public PolishRegistrationService(
+            IEnumerable<IRegistrationValidator> validators, 
+            IRepository<IRegistrationData> repository) 
             : base(validators, repository)
         {
         }
