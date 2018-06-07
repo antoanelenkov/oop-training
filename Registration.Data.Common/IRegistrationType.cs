@@ -1,4 +1,4 @@
-﻿namespace RegistrationProcess.Service
+﻿namespace Registration.Data.Common
 {
     public interface IRegulationType
     {

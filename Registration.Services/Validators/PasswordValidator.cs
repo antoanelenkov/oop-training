@@ -1,8 +1,9 @@
-﻿using RegistrationProcess.Service;
+﻿using Registration.Services.Contracts;
+using Registration.Services.RegistrationData.Contracts;
 
 namespace Registration.Services.Validators
 {
-    class PasswordValidator : IRegistrationValidator
+    internal class PasswordValidator : IRegistrationValidator
     {
         public ValidationResult Validate(IRegistrationData data)
         {

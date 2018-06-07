@@ -1,8 +1,10 @@
-﻿using System.Text.RegularExpressions;
+﻿using Registration.Services.Contracts;
+using Registration.Services.RegistrationData.Contracts;
+using System.Text.RegularExpressions;
 
-namespace RegistrationProcess.Service.Validators
+namespace Registration.Services.Validators
 {
-    public class DanishIdentityValidator : IRegistrationValidator
+    internal class DanishIdentityValidator : IRegistrationValidator
     {
         private const string ValidFormatPattern = "^[0-9]{9}$";
 

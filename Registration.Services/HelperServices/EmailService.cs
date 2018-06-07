@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Registration.Services.HelperServices.Contracts;
+using Registration.Services.RegistrationData.Contracts;
 
 namespace RegistrationProcess.Service.HelperServices
 {
-    public class EmailService : IEmailService
+    internal class EmailService : IEmailService
     {
         public void SendMail(IRegistrationData data)
         {

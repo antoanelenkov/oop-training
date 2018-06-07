@@ -1,11 +1,8 @@
-﻿using RegistrationProcess.Data.Common;
-using RegistrationProcess.Service;
-using System;
+﻿using Registration.Data.Common;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace RegistrationProcess.Data
+namespace Registration.Data
 {
     public class InMemoryRepository<T> : IRepository<T>  where T : IIdentifiable, IRegulationType
     {

@@ -1,8 +1,13 @@
-﻿using RegistrationProcess.Service;
+﻿using Registration.Data.Common;
+using Registration.Services;
+using Registration.Services.Factories;
+using Registration.Services.RegistrationData;
+using Registration.Services.RegistrationData.Contracts;
+using Registration.Services.RegistrationServices;
 using System;
 using System.Linq;
 
-namespace RegistrationProcess
+namespace Registration.Client
 {
     public class Program
     {

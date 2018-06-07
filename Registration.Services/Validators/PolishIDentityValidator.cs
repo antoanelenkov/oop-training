@@ -1,9 +1,10 @@
-﻿using RegistrationProcess.Service;
+﻿using Registration.Services.Contracts;
+using Registration.Services.RegistrationData.Contracts;
 using System.Text.RegularExpressions;
 
 namespace Registration.Services.Validators
 {
-    class PolishIDentityValidator
+    internal class PolishIdentityValidator : IRegistrationValidator
     {
         private const string ValidFormatPattern = "^[a-zA-Z]{5}$";
 

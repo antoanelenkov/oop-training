@@ -1,4 +1,7 @@
-﻿namespace RegistrationProcess.Service
+﻿using Registration.Data.Common;
+using Registration.Services.RegistrationData.Contracts;
+
+namespace Registration.Services.RegistrationData
 {
     public class RegistrationData : IRegistrationData
     {

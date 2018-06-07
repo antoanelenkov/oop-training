@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Registration.Services.HelperServices.Contracts;
+using Registration.Services.RegistrationData.Contracts;
 using RegistrationProcess.Service;
 
 namespace Registration.Services.HelperServices
 {
-    public class PolishReportService : IReportService
+    internal class PolishReportService : IReportService
     {
         public void SendReport(IRegistrationData data)
         {

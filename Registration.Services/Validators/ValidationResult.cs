@@ -1,4 +1,4 @@
-﻿namespace RegistrationProcess.Service
+﻿namespace Registration.Services.Validators
 {
     public class ValidationResult
     {

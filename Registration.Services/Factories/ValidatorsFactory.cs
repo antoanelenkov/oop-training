@@ -1,15 +1,15 @@
-﻿using Registration.Services.Validators;
-using RegistrationProcess.Service;
-using RegistrationProcess.Service.Validators;
+﻿using Registration.Data.Common;
+using Registration.Services.Contracts;
+using Registration.Services.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Registration.Services.Factories
 {
-    public class ValidatorsFactory
+
+    // Simple Factory pattern
+    internal class ValidatorsFactory
     {
         public IEnumerable<IRegistrationValidator> GetValidators(RegulationType regulationType)
         {
@@ -39,12 +39,12 @@ namespace Registration.Services.Factories
 
         private IEnumerable<IRegistrationValidator> GetPolishValidators()
         {
-            return Enumerable.Empty<IRegistrationValidator>();
+            yield return new PolishIdentityValidator();
         }
 
         private IEnumerable<IRegistrationValidator> GetRegularValidators()
         {
-            return Enumerable.Empty<IRegistrationValidator>();
+            yield return new NameValidator();
         }
     }
 }

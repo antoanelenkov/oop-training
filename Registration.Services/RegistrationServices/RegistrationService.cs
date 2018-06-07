@@ -1,10 +1,13 @@
-﻿using RegistrationProcess.Data;
+﻿using Registration.Data;
+using Registration.Data.Common;
+using Registration.Services.Contracts;
+using Registration.Services.RegistrationData.Contracts;
+using Registration.Services.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime;
 
-namespace RegistrationProcess.Service
+namespace Registration.Services.RegistrationServices
 {
     public abstract class RegistrationService
     {

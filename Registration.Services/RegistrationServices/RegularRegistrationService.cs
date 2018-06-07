@@ -1,15 +1,14 @@
-﻿using RegistrationProcess.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using RegistrationProcess.Data;
+﻿using System.Collections.Generic;
+using Registration.Services.Contracts;
+using Registration.Services.RegistrationData.Contracts;
+using Registration.Data;
+using Registration.Data.Common;
 
-namespace RegistrationProcess.Service.RegistrationServices
+namespace Registration.Services.RegistrationServices
 {
     public class RegularRegistrationService : RegistrationService
     {
-        public RegularRegistrationService(IEnumerable<IRegistrationValidator> validators, 
+        internal RegularRegistrationService(IEnumerable<IRegistrationValidator> validators, 
             IRepository<IRegistrationData> repository) 
             : base(validators, repository)
         {

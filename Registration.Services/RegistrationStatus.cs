@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Registration.Services.Validators;
+using System.Collections.Generic;
 
-namespace RegistrationProcess.Service
+namespace Registration.Services
 {
     public class RegistrationStatus
     {

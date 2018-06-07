@@ -1,18 +1,17 @@
-﻿using System;
+﻿using Registration.Data;
+using Registration.Data.Common;
+using Registration.Services.Contracts;
+using Registration.Services.HelperServices.Contracts;
+using Registration.Services.RegistrationData.Contracts;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using RegistrationProcess.Data;
-using RegistrationProcess.Service;
-using Registration.Services.HelperServices;
 
-namespace RegistrationProcess.Service
+namespace Registration.Services.RegistrationServices
 {
     public class PolishRegistrationService : RegistrationService
     {
         private readonly IReportService reportService;
 
-        public PolishRegistrationService(
+        internal PolishRegistrationService(
             IEnumerable<IRegistrationValidator> validators, 
             IRepository<IRegistrationData> repository,
             IReportService reportService) 

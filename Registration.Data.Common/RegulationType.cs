@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace RegistrationProcess.Service
+﻿namespace Registration.Data.Common
 {
     public enum RegulationType
     {

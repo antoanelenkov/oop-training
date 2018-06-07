@@ -1,12 +1,14 @@
 ﻿using Registration.Services.HelperServices;
+using Registration.Services.HelperServices.Contracts;
+using Registration.Services.RegistrationData.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace RegistrationProcess.Service
+namespace Registration.Services.HelperServices
 {
-    public  class DanishReportService : IReportService
+    internal  class DanishReportService : IReportService
     {
         public void SendReport(IRegistrationData data)
         {

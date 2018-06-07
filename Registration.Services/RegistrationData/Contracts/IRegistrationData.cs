@@ -1,6 +1,6 @@
-﻿using RegistrationProcess.Data.Common;
+﻿using Registration.Data.Common;
 
-namespace RegistrationProcess.Service
+namespace Registration.Services.RegistrationData.Contracts
 {
     public interface IRegistrationData : IIdentifiable, IRegulationType
     {

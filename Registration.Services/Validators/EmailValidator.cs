@@ -1,8 +1,10 @@
-﻿using System.Text.RegularExpressions;
+﻿using Registration.Services.Contracts;
+using Registration.Services.RegistrationData.Contracts;
+using System.Text.RegularExpressions;
 
-namespace RegistrationProcess.Service.Validators
+namespace Registration.Services.Validators
 {
-    public class EmailValidator : IRegistrationValidator
+    internal class EmailValidator : IRegistrationValidator
     {
         private const string ValidFormatPattern = "^\\S+@\\S+\\.\\S+$";
 

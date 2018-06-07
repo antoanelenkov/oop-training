@@ -1,6 +1,8 @@
-﻿namespace RegistrationProcess.Service
+﻿using Registration.Services.RegistrationData.Contracts;
+
+namespace Registration.Services.HelperServices.Contracts
 {
-    public interface IEmailService
+    internal interface IEmailService
     {
         void SendMail(IRegistrationData data);
     }

@@ -1,13 +1,9 @@
-﻿using RegistrationProcess.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Registration.Services.Contracts;
+using Registration.Services.RegistrationData.Contracts;
 
 namespace Registration.Services.Validators
 {
-    class NameValidator : IRegistrationValidator
+    internal class NameValidator : IRegistrationValidator
     {
         public ValidationResult Validate(IRegistrationData data)
         {

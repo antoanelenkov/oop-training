@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using RegistrationProcess.Data;
-using RegistrationProcess.Service;
-using Registration.Services.HelperServices;
+﻿using System.Collections.Generic;
+using Registration.Data.Common;
+using Registration.Services.HelperServices.Contracts;
+using Registration.Services.RegistrationData.Contracts;
+using Registration.Services.Contracts;
+using Registration.Data;
 
-namespace RegistrationProcess.Service
+namespace Registration.Services.RegistrationServices
 {
     public class DanishRegistrationService : RegistrationService
     {
         private readonly IEmailService emailService;
         private readonly IReportService reportService;
 
-        public DanishRegistrationService(
+        internal DanishRegistrationService(
             IEnumerable<IRegistrationValidator> validators,
             IRepository<IRegistrationData> repository,
             IEmailService emailService,

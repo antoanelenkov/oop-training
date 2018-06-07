@@ -1,8 +1,9 @@
-﻿using RegistrationProcess.Service;
+﻿using Registration.Services.RegistrationData.Contracts;
+using RegistrationProcess.Service;
 
-namespace Registration.Services.HelperServices
+namespace Registration.Services.HelperServices.Contracts
 {
-    public interface IReportService
+    internal interface IReportService
     {
         void SendReport(IRegistrationData data);
     }

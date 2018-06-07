@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Registration.Data.Common;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace RegistrationProcess.Data
-{ 
+namespace Registration.Data
+{
     public interface IRepository<T>
     {
         bool Save(T entity);
+
+        IEnumerable<T> GetAll();
+
+        IEnumerable<T> GetByRegulation(RegulationType type);
     }
 }
