@@ -15,7 +15,7 @@ namespace Registration.Client
         {
             Console.WriteLine("Choose registration flow:" + Environment.NewLine
             + "For regular press '1', for danish  press '2', for polish press '3'");
-            var regulationType = (RegulationType)(int.Parse(Console.ReadLine())-1);
+            var regulationType = (RegulationType)(int.Parse(Console.ReadLine()) - 1);
 
             RegistrationService service = new RegistrationServiceFactory().GetService(regulationType);
             ProcessRegistrationStatus(service.Register(GetRegistrationData(regulationType)));
@@ -73,27 +73,25 @@ namespace Registration.Client
             return GetDanishData(regularData);
         }
 
-        private static void ProcessRegistrationStatus(RegistrationStatus status)
+        private static void ProcessRegistrationStatus(RegistrationResult result)
         {
-            if (status.Status == RegistrationStatusType.Invalid)
+            switch (result.Status)
             {
-                Console.WriteLine("Your registration is not successful!");
-                foreach (var message in status.ErrorMessages)
-                {
-                    Console.WriteLine(message);
-                }
-            }
-            else if (status.Status == RegistrationStatusType.Successful)
-            {
-                Console.WriteLine("Your registration is successful!");
-            }
-            else if (status.Status == RegistrationStatusType.ServerError)
-            {
-                Console.WriteLine("There is server error! Please try again later...");
-            }
-            else
-            {
-                throw new NotImplementedException("RegistrationStatusType is not implemented");
+                case RegistrationStatusType.Successful:
+                    Console.WriteLine("Your registration is not successful!");
+                    foreach (var message in result.ErrorMessages)
+                    {
+                        Console.WriteLine(message);
+                    }
+                    break;
+                case RegistrationStatusType.Invalid:
+                    Console.WriteLine("Your registration is successful!");
+                    break;
+                case RegistrationStatusType.ServerError:
+                    Console.WriteLine("There is server error! Please try again later...");
+                    break;
+                default:
+                    throw new NotImplementedException("RegistrationStatusType is not implemented");
             }
         }
     }

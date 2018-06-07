@@ -57,7 +57,7 @@
     <Compile Include="RegistrationServices\DanishRegistrationService.cs" />
     <Compile Include="RegistrationServices\PolishRegistrationService.cs" />
     <Compile Include="RegistrationServices\RegistrationService.cs" />
-    <Compile Include="RegistrationStatus.cs" />
+    <Compile Include="RegistrationResult.cs" />
     <Compile Include="RegistrationServices\RegularRegistrationService.cs" />
     <Compile Include="RegistrationStatusType.cs" />
     <Compile Include="Validators\DanishIdentityValidator.cs" />

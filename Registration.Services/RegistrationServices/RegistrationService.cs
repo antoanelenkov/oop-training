@@ -24,7 +24,7 @@ namespace Registration.Services.RegistrationServices
 
         internal abstract RegulationType RegulationType { get; }
 
-        public RegistrationStatus Register(IRegistrationData data)
+        public RegistrationResult Register(IRegistrationData data)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace Registration.Services.RegistrationServices
 
                 if (!this.RegistrationDataIsValid(validations))
                 {
-                    return new RegistrationStatus(validations, RegistrationStatusType.Invalid);
+                    return new RegistrationResult(validations, RegistrationStatusType.Invalid);
                 }
 
                 PreRegister(data);
@@ -43,10 +43,10 @@ namespace Registration.Services.RegistrationServices
             catch (Exception ex)
             {
                 //Logging exception
-                return new RegistrationStatus(Enumerable.Empty<ValidationResult>(), RegistrationStatusType.ServerError);
+                return new RegistrationResult(Enumerable.Empty<ValidationResult>(), RegistrationStatusType.ServerError);
             }
 
-            return new RegistrationStatus(Enumerable.Empty<ValidationResult>(), RegistrationStatusType.Successful);
+            return new RegistrationResult(Enumerable.Empty<ValidationResult>(), RegistrationStatusType.Successful);
         }
 
         protected virtual void PreRegister(IRegistrationData data){  }

@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Registration.Services
 {
-    public class RegistrationStatus
+    public class RegistrationResult
     {
-        public RegistrationStatus(IEnumerable<ValidationResult> validations, RegistrationStatusType status)
+        public RegistrationResult(IEnumerable<ValidationResult> validations, RegistrationStatusType status)
         {
             this.Status = status;
             this.ErrorMessages = validations.Where(x=>!x.IsValid).Select(x=>x.ErrorMessage);
