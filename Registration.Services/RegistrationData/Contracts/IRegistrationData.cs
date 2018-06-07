@@ -2,7 +2,7 @@
 
 namespace RegistrationProcess.Service
 {
-    public interface IRegistrationData : IIdentifiable
+    public interface IRegistrationData : IIdentifiable, IRegulationType
     {
         string Username { get; set; }
 
@@ -10,9 +10,7 @@ namespace RegistrationProcess.Service
 
         string Email { get; set; }
 
-        string Firstname { get; set; }
-
-        string Lastname { get; set; }
+        string Name { get; set; }
 
         string IdentityNumber { get; set; }
     }

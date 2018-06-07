@@ -1,10 +1,11 @@
-﻿using System.Text.RegularExpressions;
+﻿using RegistrationProcess.Service;
+using System.Text.RegularExpressions;
 
-namespace RegistrationProcess.Service.Validators
+namespace Registration.Services.Validators
 {
-    public class DanishIdentityValidator : IRegistrationValidator
+    class PolishIDentityValidator
     {
-        private const string ValidFormatPattern = "^[0-9]{9}$";
+        private const string ValidFormatPattern = "^[a-zA-Z]{5}$";
 
         public ValidationResult Validate(IRegistrationData data)
         {

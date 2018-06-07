@@ -1,4 +1,5 @@
 ﻿using RegistrationProcess.Data.Common;
+using RegistrationProcess.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RegistrationProcess.Data
 {
-    public class InMemoryRepository<T> : IRepository<T>  where T : IIdentifiable
+    public class InMemoryRepository<T> : IRepository<T>  where T : IIdentifiable, IRegulationType
     {
         private readonly ICollection<T> entities;
 
@@ -31,6 +32,11 @@ namespace RegistrationProcess.Data
         public IEnumerable<T> GetAll()
         {
             return new List<T>(this.entities);
+        }
+
+        public IEnumerable<T> GetByRegulation(RegulationType type)
+        {
+            return new List<T>(this.entities.Where(x=>x.RegulationType == type));
         }
     }
 }

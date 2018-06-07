@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace RegistrationProcess.Service.Validators
 {
@@ -12,17 +8,12 @@ namespace RegistrationProcess.Service.Validators
 
         public ValidationResult Validate(IRegistrationData data)
         {
-            var isValid = Validate(data.Email);
+            var isValid = Regex.Match(data.Email, ValidFormatPattern).Success;
             return new ValidationResult()
             {
                 IsValid = isValid,
                 ErrorMessage = isValid ? string.Empty : "Email is not in valid format"
             };
-        }
-
-        private bool Validate(string identity)
-        {
-            return Regex.Match(identity, ValidFormatPattern).Success;
         }
     }
 }

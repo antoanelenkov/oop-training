@@ -14,5 +14,7 @@ namespace RegistrationProcess.Service.RegistrationServices
             : base(validators, repository)
         {
         }
+
+        public override RegulationType RegulationType => RegulationType.Regular;
     }
 }

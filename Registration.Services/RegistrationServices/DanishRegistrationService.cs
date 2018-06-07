@@ -24,6 +24,8 @@ namespace RegistrationProcess.Service
             this.reportService = reportService;
         }
 
+        public override RegulationType RegulationType => RegulationType.Danish;
+
         protected override void PostRegister(bool isSuccessful, IRegistrationData data)
         {
             if (isSuccessful)

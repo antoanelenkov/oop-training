@@ -1,4 +1,5 @@
-﻿using RegistrationProcess.Service;
+﻿using Registration.Services.Validators;
+using RegistrationProcess.Service;
 using RegistrationProcess.Service.Validators;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace Registration.Services.Factories
         private IEnumerable<IRegistrationValidator> GetBaseValidators()
         {
             yield return new EmailValidator();
+            yield return new PasswordValidator();
         }
 
         private IEnumerable<IRegistrationValidator> GetDanishValidators()

@@ -49,8 +49,10 @@
     <Compile Include="HelperServices\EmailService.cs" />
     <Compile Include="HelperServices\Contracts\IEmailService.cs" />
     <Compile Include="HelperServices\Contracts\IReportService.cs" />
+    <Compile Include="HelperServices\PolishReportService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationData\Contracts\IRegistrationData.cs" />
+    <Compile Include="RegistrationData\Contracts\IRegistrationType.cs" />
     <Compile Include="RegistrationData\RegistrationData.cs" />
     <Compile Include="Factories\RegistrationServiceFactory.cs" />
     <Compile Include="RegistrationServices\DanishRegistrationService.cs" />
@@ -59,10 +61,12 @@
     <Compile Include="RegistrationStatus.cs" />
     <Compile Include="RegistrationServices\RegularRegistrationService.cs" />
     <Compile Include="RegistrationStatusType.cs" />
-    <Compile Include="RegulationType.cs" />
     <Compile Include="Validators\DanishIdentityValidator.cs" />
     <Compile Include="Validators\Contracts\IRegistrationValidator.cs" />
     <Compile Include="Validators\EmailValidator.cs" />
+    <Compile Include="Validators\NameValidator.cs" />
+    <Compile Include="Validators\PasswordValidator.cs" />
+    <Compile Include="Validators\PolishIDentityValidator.cs" />
     <Compile Include="Validators\ValidationResult.cs" />
   </ItemGroup>
   <ItemGroup>

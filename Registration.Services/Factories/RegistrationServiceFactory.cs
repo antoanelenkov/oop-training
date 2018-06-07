@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Registration.Services.Factories;
+using Registration.Services.HelperServices;
 using RegistrationProcess.Data;
 using RegistrationProcess.Service.HelperServices;
 using RegistrationProcess.Service.RegistrationServices;
@@ -23,7 +24,8 @@ namespace RegistrationProcess.Service
                         new EmailService(),
                         new DanishReportService());
                 case RegulationType.Polish:
-                    return new PolishRegistrationService(validators, repository);
+                    return new PolishRegistrationService(validators, repository, 
+                        new PolishReportService());
                 default:
                     throw new NotImplementedException("regulation type is not implemented");
             }

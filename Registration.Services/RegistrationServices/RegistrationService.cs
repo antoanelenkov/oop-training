@@ -11,8 +11,6 @@ namespace RegistrationProcess.Service
         private IEnumerable<IRegistrationValidator> validators;
         private IRepository<IRegistrationData> repository;
 
-
-
         protected RegistrationService(
             IEnumerable<IRegistrationValidator> validators,
             IRepository<IRegistrationData> repository)
@@ -21,9 +19,7 @@ namespace RegistrationProcess.Service
             this.repository = repository;
         }
 
-        protected virtual void PreRegister(IRegistrationData data) { }
-
-        protected virtual void PostRegister(bool isSuccessful, IRegistrationData data) { }
+        public abstract RegulationType RegulationType { get; }
 
         public RegistrationStatus Register(IRegistrationData data)
         {
@@ -31,6 +27,7 @@ namespace RegistrationProcess.Service
 
             try
             {
+                this.ProcessData(data);
                 validations = this.Validate(data);
 
                 if (!this.RegistrationDataIsValid(validations))
@@ -49,6 +46,15 @@ namespace RegistrationProcess.Service
             }
 
             return new RegistrationStatus(validations, RegistrationStatusType.Successful);
+        }
+
+        protected virtual void PreRegister(IRegistrationData data){  }
+
+        protected virtual void PostRegister(bool isSuccessful, IRegistrationData data) { }
+
+        private void ProcessData(IRegistrationData data)
+        {
+            data.RegulationType = this.RegulationType;
         }
 
         private IEnumerable<ValidationResult> Validate(IRegistrationData data)
