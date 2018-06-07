@@ -78,9 +78,9 @@ namespace Registration.Client
             if (status.Status == RegistrationStatusType.Invalid)
             {
                 Console.WriteLine("Your registration is not successful!");
-                foreach (var validation in status.Validations.Where(x => !x.IsValid))
+                foreach (var message in status.ErrorMessages)
                 {
-                    Console.WriteLine(validation.ErrorMessage);
+                    Console.WriteLine(message);
                 }
             }
             else if (status.Status == RegistrationStatusType.Successful)

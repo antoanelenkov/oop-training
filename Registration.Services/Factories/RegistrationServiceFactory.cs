@@ -55,7 +55,5 @@ namespace Registration.Services.Factories
                     throw new NotImplementedException("regulation type is not implemented");
             }
         }
-
-
     }
 }

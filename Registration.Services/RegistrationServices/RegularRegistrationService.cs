@@ -14,6 +14,6 @@ namespace Registration.Services.RegistrationServices
         {
         }
 
-        public override RegulationType RegulationType => RegulationType.Regular;
+        internal override RegulationType RegulationType => RegulationType.Regular;
     }
 }

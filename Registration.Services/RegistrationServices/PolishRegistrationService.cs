@@ -20,7 +20,7 @@ namespace Registration.Services.RegistrationServices
             this.reportService = reportService;
         }
 
-        public override RegulationType RegulationType => RegulationType.Polish;
+        internal override RegulationType RegulationType => RegulationType.Polish;
 
         protected override void PreRegister(IRegistrationData data)
         {

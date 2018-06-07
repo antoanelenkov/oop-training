@@ -22,16 +22,14 @@ namespace Registration.Services.RegistrationServices
             this.repository = repository;
         }
 
-        public abstract RegulationType RegulationType { get; }
+        internal abstract RegulationType RegulationType { get; }
 
         public RegistrationStatus Register(IRegistrationData data)
         {
-            IEnumerable<ValidationResult> validations = Enumerable.Empty<ValidationResult>();
-
             try
             {
                 this.ProcessData(data);
-                validations = this.Validate(data);
+                var validations = this.Validate(data);
 
                 if (!this.RegistrationDataIsValid(validations))
                 {
@@ -45,10 +43,10 @@ namespace Registration.Services.RegistrationServices
             catch (Exception ex)
             {
                 //Logging exception
-                return new RegistrationStatus(validations, RegistrationStatusType.ServerError);
+                return new RegistrationStatus(Enumerable.Empty<ValidationResult>(), RegistrationStatusType.ServerError);
             }
 
-            return new RegistrationStatus(validations, RegistrationStatusType.Successful);
+            return new RegistrationStatus(Enumerable.Empty<ValidationResult>(), RegistrationStatusType.Successful);
         }
 
         protected virtual void PreRegister(IRegistrationData data){  }
