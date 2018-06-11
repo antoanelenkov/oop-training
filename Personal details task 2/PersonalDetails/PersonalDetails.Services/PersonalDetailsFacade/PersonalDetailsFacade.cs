@@ -23,7 +23,6 @@ namespace PersonalDetails.Services.PersonalDetailsFacade
             services = new List<PersonalDetailsService>();
         }
 
-
         public void UpdateUserDetails(RegulationType regulation, IUserData data)
         {
             this.GetService(regulation).UpdatePassword(data.Id, data.Password);

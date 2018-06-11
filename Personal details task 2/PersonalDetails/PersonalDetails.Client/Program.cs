@@ -16,7 +16,7 @@ namespace PersonalDetails.Client
                 + "For polish press '3'" + Environment.NewLine);
 
             var regulation = (RegulationType)(int.Parse(Console.ReadLine()) - 1);
-            var userData = new UserData() { Id = "123456",FirstName="Bai", LastName= "Georgi" };
+            var userData = new UserData() { Id = "123456", FirstName="Bai", LastName= "Georgi" };
 
             Console.WriteLine("Choose action:" + Environment.NewLine
                 + "For deposit press '1'" + Environment.NewLine
