@@ -13,14 +13,12 @@ namespace PersonalDetails.Services.PersonalDetailsServices
     internal class PolishPersonalDetailsService : PersonalDetailsService, IBettingLimitable
     {
         private readonly IDepositService depositService;
-        private readonly IWithdrawService withdrawService;
 
         internal PolishPersonalDetailsService(
             IDepositService depositService,
-            IWithdrawService withdrawService) : base()
+            IWithdrawService withdrawService) : base(withdrawService)
         {
             this.depositService = depositService;
-            this.withdrawService = withdrawService;
         }
 
         public override RegulationType RegulationType
@@ -39,11 +37,6 @@ namespace PersonalDetails.Services.PersonalDetailsServices
         public void LimitPerDay(string userId, decimal amount)
         {
             Console.WriteLine($"User with  {userId} has betting limit: {amount} per day");
-        }
-
-        public override void Withdraw(string userId, decimal amount)
-        {
-            this.withdrawService.Withdraw(userId, amount);
         }
     }
 }

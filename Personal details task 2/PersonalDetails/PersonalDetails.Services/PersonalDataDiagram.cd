@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="PersonalDetails.Services.Services.RegularPersonalDetailsService" Collapsed="true">
-    <Position X="6.25" Y="1.75" Width="1.5" />
+    <Position X="6" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAAAAAAgEQAAAABAAAgAAAAAAAAI=</HashCode>
       <FileName>PersonalDetailsServices\RegularPersonalDetailsService.cs</FileName>
@@ -9,7 +9,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PersonalDetails.Services.Services.PersonalDetailsService" Collapsed="true">
-    <Position X="8.25" Y="0.5" Width="1.5" />
+    <Position X="8" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAABAAAAAAAAIAAAI=</HashCode>
       <FileName>PersonalDetailsServices\PersonalDetailsService.cs</FileName>
@@ -17,7 +17,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PersonalDetails.Services.PersonalDetailsServices.DanishPersonalDetailsService" Collapsed="true">
-    <Position X="8.25" Y="1.75" Width="1.5" />
+    <Position X="8" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAAAAAAgEQAAABBAAAgAAAAAAAAI=</HashCode>
       <FileName>PersonalDetailsServices\DanishPersonalDetailsService.cs</FileName>
@@ -25,7 +25,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PersonalDetails.Services.PersonalDetailsServices.PolishPersonalDetailsService" Collapsed="true">
-    <Position X="10.25" Y="1.75" Width="1.5" />
+    <Position X="10" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAgEQAAAABAAAAAAAAAAAAI=</HashCode>
       <FileName>PersonalDetailsServices\PolishPersonalDetailsService.cs</FileName>
@@ -33,14 +33,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PersonalDetails.Services.PersonalDetailsFacade.PersonalDetailsFacade" Collapsed="true">
-    <Position X="6" Y="5.25" Width="1.5" />
+    <Position X="13.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAIEAAAAAEAAAAAEAAIAAAAAAAAAAIAAAEI=</HashCode>
       <FileName>PersonalDetailsFacade\PersonalDetailsFacade.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PersonalDetails.Services.Models.UserData" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="14.75" Y="4.25" Width="1.5" />
+    <Position X="15.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAEAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAg=</HashCode>
       <FileName>Models\UserData.cs</FileName>
@@ -48,7 +48,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="PersonalDetails.Services.HelperServices.WithdrawServices.WithdrawService" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.5" Y="1.5" Width="1.5" />
+    <Position X="15.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>HelperServices\WithdrawServices\WithdrawService.cs</FileName>
@@ -56,7 +56,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="PersonalDetails.Services.HelperServices.ExternalSelfExclusionService" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="13" Y="0.5" Width="1.5" />
+    <Position X="17.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>HelperServices\SelxExclusionServices\ExternalSelfExclusionService.cs</FileName>
@@ -64,7 +64,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="PersonalDetails.Services.HelperServices.DepositServices.PaypalDepositService" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.5" Y="0.5" Width="1.5" />
+    <Position X="12" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>HelperServices\DepositServices\PaypalDepositService.cs</FileName>
@@ -72,7 +72,7 @@
     <Lollipop Position="0.221" Collapsed="true" />
   </Class>
   <Class Name="PersonalDetails.Services.HelperServices.DepositServices.MastercardDepositService" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="14.75" Y="0.5" Width="1.5" />
+    <Position X="13.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>HelperServices\DepositServices\MastercardDepositService.cs</FileName>
@@ -80,70 +80,70 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Interface Name="PersonalDetails.Services.Services.Contracts.IBettingLimitable" Collapsed="true">
-    <Position X="6" Y="2.75" Width="1.5" />
+    <Position X="6.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PersonalDetailsServices\Contracts\IBettingLimitable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PersonalDetails.Services.Services.Contracts.IDepositable" Collapsed="true">
-    <Position X="7.75" Y="2.75" Width="1.5" />
+    <Position X="8" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>PersonalDetailsServices\Contracts\IDepositable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PersonalDetails.Services.Services.Contracts.ISelfExcludable" Collapsed="true">
-    <Position X="7.75" Y="3.5" Width="1.5" />
+    <Position X="8" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PersonalDetailsServices\Contracts\ISelfExcludable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PersonalDetails.Services.Services.Contracts.ITimeLimitable" Collapsed="true">
-    <Position X="6" Y="3.5" Width="1.5" />
+    <Position X="6.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
       <FileName>PersonalDetailsServices\Contracts\ITimeLimitable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PersonalDetails.Services.Services.Contracts.IWithdrawable" Collapsed="true">
-    <Position X="9.5" Y="2.75" Width="1.5" />
+    <Position X="9.75" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PersonalDetailsServices\Contracts\IWithdrawable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PersonalDetails.Services.Models.Contracts.IUserData" Collapsed="true">
-    <Position X="13" Y="4.25" Width="1.5" />
+    <Position X="15.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAEAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAg=</HashCode>
       <FileName>Models\Contracts\IUserData.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PersonalDetails.Services.HelperServices.Contracts.IWithdrawService" Collapsed="true">
-    <Position X="16.5" Y="2.75" Width="1.5" />
+    <Position X="15.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>HelperServices\Contracts\IWithdrawService.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PersonalDetails.Services.HelperServices.Contracts.ISelfExclusionService" Collapsed="true">
-    <Position X="13" Y="2.75" Width="1.5" />
+    <Position X="17.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>HelperServices\Contracts\ISelfExclusionService.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PersonalDetails.Services.HelperServices.Contracts.IDepositService" Collapsed="true">
-    <Position X="14.75" Y="2.75" Width="1.5" />
+    <Position X="12.25" Y="1" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>HelperServices\Contracts\IDepositService.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="PersonalDetails.Services.Enums.RegulationType" Collapsed="true">
-    <Position X="13" Y="5.25" Width="1.5" />
+    <Position X="13.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAEAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>Enums\RegulationType.cs</FileName>

@@ -1,4 +1,5 @@
 ﻿using PersonalDetails.Services.Enums;
+using PersonalDetails.Services.HelperServices.Contracts;
 using PersonalDetails.Services.Models.Contracts;
 using PersonalDetails.Services.Services.Contracts;
 using System;
@@ -11,8 +12,11 @@ namespace PersonalDetails.Services.Services
 {
     internal abstract class PersonalDetailsService : IWithdrawable, IDepositable
     {
-        protected PersonalDetailsService()
+        protected readonly IWithdrawService withdrawService;
+
+        protected PersonalDetailsService(IWithdrawService withdrawService)
         {
+            this.withdrawService = withdrawService;
         }
 
         public void UpdatePassword(string userId, string newPass)
@@ -21,9 +25,12 @@ namespace PersonalDetails.Services.Services
             Console.WriteLine($"User with id {userId} has updated his password!");
         }
 
-        public abstract RegulationType RegulationType { get; }
+        public virtual void Withdraw(string userId, decimal amount)
+        {
+            this.withdrawService.Withdraw(userId, amount);
+        }
 
-        public abstract void Withdraw(string userId, decimal amount);
+        public abstract RegulationType RegulationType { get; }
 
         public abstract void Deposit(string userId, decimal amount);
     }

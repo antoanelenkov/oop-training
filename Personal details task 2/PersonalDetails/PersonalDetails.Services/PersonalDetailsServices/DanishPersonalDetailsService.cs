@@ -9,16 +9,14 @@ namespace PersonalDetails.Services.PersonalDetailsServices
     internal class DanishPersonalDetailsService : PersonalDetailsService, ITimeLimitable, ISelfExcludable
     {
         private readonly IDepositService depositService;
-        private readonly IWithdrawService withdrawService;
         private readonly ISelfExclusionService selfExclusionService;
 
         internal DanishPersonalDetailsService(
             IDepositService depositService,
             IWithdrawService withdrawService,
-            ISelfExclusionService selfExclusionService) : base()
+            ISelfExclusionService selfExclusionService) : base(withdrawService)
         {
             this.depositService = depositService;
-            this.withdrawService = withdrawService;
             this.selfExclusionService = selfExclusionService;
         }
 
@@ -50,11 +48,6 @@ namespace PersonalDetails.Services.PersonalDetailsServices
         public void SelfExclude(string userId, int daysPeriod)
         {
             this.selfExclusionService.SelfExclude(userId, daysPeriod);
-        }
-
-        public override void Withdraw(string userId, decimal amount)
-        {
-            this.withdrawService.Withdraw(userId, amount);
         }
     }
 }
