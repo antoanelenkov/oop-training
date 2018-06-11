@@ -77,14 +77,14 @@ namespace Registration.Client
         {
             switch (result.Status)
             {
-                case RegistrationStatusType.Successful:
+                case RegistrationStatusType.Invalid:
                     Console.WriteLine("Your registration is not successful!");
                     foreach (var message in result.ErrorMessages)
                     {
                         Console.WriteLine(message);
                     }
                     break;
-                case RegistrationStatusType.Invalid:
+                case RegistrationStatusType.Successful:
                     Console.WriteLine("Your registration is successful!");
                     break;
                 case RegistrationStatusType.ServerError:
