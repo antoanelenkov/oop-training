@@ -35,11 +35,11 @@ namespace OopDemo.Polymorphism
 
         private static void ShowVirtualMethodsExample()
         {
-            List<EuropeanCountry> countries = new List<EuropeanCountry>() { new Bulgaria(), new France() };
+            IEnumerable<EuropeanCountry> countries = new List<EuropeanCountry>() { new Bulgaria(), new France() };
 
             foreach (var country in countries)
             {
-                Console.WriteLine("Currency: " + ((Bulgaria)country).GetCurrency());
+                Console.WriteLine("Currency: " + country.GetCurrency());
                 Console.WriteLine("Country name: " + country.GetName());
             }
         }
